@@ -18,5 +18,25 @@ const createGrid = function(sideLength){
     container.addEventListener("mouseover", onmouseover);
 }
 
-createGrid(16)
+const clearGrid = () => {
+    container.replaceChildren();
+} 
+
+const changeGridEvent = () => {
+    let sl;
+    do
+    {
+        sl = parseInt(prompt("Enter grid side length (1-100):"));
+    } while(!sl || sl > 100 || sl < 0); // Run as long as sl is not NaN and sl is between 1 and 100
+    clearGrid();
+    createGrid(sl);
+}
+
+createGrid(16);
+
+const btn = document.querySelector("button");
+btn.addEventListener("click", changeGridEvent);
+
+
+
 
